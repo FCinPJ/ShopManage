@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="GoodsTypeMapper">
+	
+  <insert id="insertType" parameterType="String">
+    insert into GoodsType(typename)
+    values(#{typename})
+  </insert>
+  
+  <delete id="deleteType" parameterType="int">
+  delete from GoodsType where typeid=#{_parameter}
+  </delete>
+  
+  <delete id="deleteGood" parameterType="int">
+  delete from Goods where goodid=#{_parameter}
+  </delete>
+  
+  <update id="updateGood" parameterType="entity.Goods">
+ 	 update goods set goodname=#{goodname},typeid=#{typeid},price=#{price} where goodid = #{id}
+  </update>
+  
+   <insert id="insertGood" parameterType="entity.Goods">
+    insert into goods(goodname,typeid,price)
+    values(#{goodname},#{typeid},#{price})
+  </insert>
+</mapper>
